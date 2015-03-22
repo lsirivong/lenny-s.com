@@ -1,6 +1,6 @@
 /*global -$ */
 'use strict';
-// generated on 2015-03-17 using generator-gulp-webapp 0.2.0
+// generated on 2015-03-22 using generator-gulp-webapp 0.3.0
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
@@ -8,6 +8,7 @@ var reload = browserSync.reload;
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
+    .pipe($.sourcemaps.init())
     .pipe($.sass({
       outputStyle: 'nested', // libsass doesn't support expanded yet
       precision: 10,
@@ -17,7 +18,9 @@ gulp.task('styles', function () {
     .pipe($.postcss([
       require('autoprefixer-core')({browsers: ['last 1 version']})
     ]))
-    .pipe(gulp.dest('.tmp/styles'));
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('jshint', function () {
@@ -45,15 +48,18 @@ gulp.task('images', function () {
   return gulp.src('app/images/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
-      interlaced: true
+      interlaced: true,
+      // don't remove IDs from SVGs, they are often used
+      // as hooks for embedding and styling
+      svgoPlugins: [{cleanupIDs: false}]
     })))
     .pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('fonts', function () {
-  return gulp.src(require('main-bower-files')().concat('app/fonts/**/*'))
-    .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
-    .pipe($.flatten())
+  return gulp.src(require('main-bower-files')({
+    filter: '**/*.{eot,svg,ttf,woff,woff2}'
+  }).concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
 });
@@ -61,8 +67,7 @@ gulp.task('fonts', function () {
 gulp.task('extras', function () {
   return gulp.src([
     'app/*.*',
-    '!app/*.html',
-    'node_modules/apache-server-configs/dist/.htaccess'
+    '!app/*.html'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
@@ -70,7 +75,7 @@ gulp.task('extras', function () {
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
-gulp.task('serve',  ['styles'],function () {
+gulp.task('serve', ['styles', 'fonts'], function () {
   browserSync({
     notify: false,
     port: 9000,
@@ -85,13 +90,14 @@ gulp.task('serve',  ['styles'],function () {
   // watch for changes
   gulp.watch([
     'app/*.html',
-    '.tmp/styles/**/*.css',
     'app/scripts/**/*.js',
-    'app/images/**/*'
+    'app/images/**/*',
+    '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/styles/**/*.scss', ['styles', reload]);
-  gulp.watch('bower.json', ['wiredep', 'fonts', reload]);  
+  gulp.watch('app/styles/**/*.scss', ['styles']);
+  gulp.watch('app/fonts/**/*', ['fonts']);
+  gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
 // inject bower components

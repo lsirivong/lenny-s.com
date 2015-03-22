@@ -1,5 +1,5 @@
 {
-  "name": "src",
+  "name": "gulp-lenny-s-com",
   "private": true,
   "dependencies": {
     "jquery": "~2.1.1",
