@@ -17,166 +17,75 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
   <body>
     <header>
-      <h1>Lenny Sirivong</h1>
+      <h1><a href="/">Lenny Sirivong</a></h1>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="http://blog.lenny-s.com">Blog</a></li>
+          <li><a href="http://twitter.com/lsirivong">Twitter</a></li>
+        </ul>
+      </nav>
     </header>
-    <section class="hero">
-      <section class="welcome clearfix">
+
+    <section class="block">
+      <aside class="welcome">
         <p>Hi! I'm a full stack web developer at <a href="http://ginlane.com" target="_blank">Gin Lane</a> living and working from Ithaca, NY.</p>
-        <p>I have a bachelor&rsquo;s degree in Computer Science from the University of Wisconsin &ndash; Madison. I worked for three years at Sony Creative Software as a User Experience Software Engineer. I've been building web sites since 2012. My background has helped me learn to:</p>
+        <p>I have a bachelor&rsquo;s degree in Computer Science from the University Madison. I worked for three years at Sony Creative Software as a User Experience Software Engineer. I've been building web sites since 2012. My background has helped me learn to:</p>
         <ul>
           <li>&hellip;grok new and complex code quickly</li>
           <li>&hellip;build thoughtful and maintainable code</li>
           <li>&hellip;communicate effectively as a remote team member</li>
           <li>&hellip;complete projects quickly.</li>
         </ul>
-      </section>
+      </aside>
     </section>
-    <div role=main class=clear>
-      <section class=area>
-        <section class=company>
-          <h2>Selected Work</h2>
-          <section class="project clearfix">
-            <h3><a href="http://saturdaysmagazine.com/">Saturdays Magazine</a></h3>
-            <p class="job-desc">Gin Lane Web Developer &ndash; HTML / CSS / jQuery</p>
-          </section>
-          <section class="project clearfix">
-            <h3><a href="http://www.michaelkors.com/trend/instakors/_/R-cat2450003">Michael Kors - #instakors</a></h3>
-            <p class="job-desc">Gin Lane Web Developer &ndash; Ruby on Rails / HTML / CSS / jQuery</p>
-          </section>
-          <section class="project clearfix">
-            <h3><a href="https://vimeo.com/80425351">AYR</a></h3>
-            <p class="job-desc">Gin Lane Web Developer &ndash; Ruby on Rails / Spreecommerce / HTML / CSS / jQuery</p>
-          </section>
-          <section class="project clearfix">
-            <h3><a href="http://mygirls.adidas.com/com/" target=_blank>Adidas #mygirls</a></h3>
-            <p class=job-desc>Gin Lane Web Developer &ndash; PHP / Silex / HTML / CSS / jQuery</p>
-          </section>
-          <section class="project clearfix">
-            <h3><a href="https://bluetreenetwork.com" target=_blank>BlueTree Network</a></h3>
-            <p class=job-desc>Lead Developer &ndash; ASP.Net / MS SQL Server / HTML / CSS / jQuery</p>
-            <p>BlueTree Network is an emerging platform for connecting Healthcare Organizations with Epic software consultants. As a contractor through Hardin Design and Development, I was lead developer with BlueTree Network from March 2012 to February 2013. My responsibilites ranged from database administration to interface design. I worked closely with the founders to iterate on the early versions of their platform. My work has helped the BlueTree team demonstrate the viability of the platform to customers and consultants, which has attracted investment and customers.</p>
-          </section>
-          <section class="project clearfix">
-            <h3><a href="http://nexcyon.com" target=_blank>Nexcyon</a></h3>
-            <p class=job-desc>Lead Developer &ndash; HTML / CSS / jQuery</p>
-            <p>Nexcyon is a veterinary pharmaceuticals company. Hardin Design and Development worked with the design team from <a href="http://kw2ideas.com" target="_blank">KW2</a> to build an engaging single page website to tell their story in a novel and engaging way.</p>
-          </section>
-          <section class="project clearfix">
-            <h3><a href="http://khamchanhs.com" target=_blank>Khamchanh&rsquo;s Chinese Food</a></h3>
-            <p class=job-desc>Design / HTML / CSS</p>
 
-            <ul class="h-list gallery-thumbs left">
-              <li><a title="Khamchanhs.com desktop and iPhone screenshots" class=fancy-box href="images/k.gif"><img alt="Khamchanhs.com screenshot thumbnail" src="images/k-sm.gif"/></a></li>
-            </ul>
-            <p class=goal>My parents used to run a small restaurant in central Wisconsin. I wanted to give them an online presence that would help their customers get all the answers they need quickly.</p>
-            <p>I designed and built a single page website which focused on making their address, phone number, hours, and menu easy to find and read.</p>
-          </section> 
-            <section class=company>
-              <h2>Sony Electronics &ndash; Sony Creative Software</h2>
-              <p class=job-desc>User Experience &ndash; Software Engineer, January 2009 - July 2011</p>
-              <p class=job-desc>User Experience &ndash; Senior Software Engineer, July 2011 - November 2011 </p>
-              <section class=project>
-                <h3>Usability Tests</h3>
-                <p class=job-desc>User Research / Usability Test Design / Usability Test Moderation</p>
-                <p class=goal>Gain a clear, focused picture of how new users do with Vegas Movie Studio, so that we can plan improvements based on realistic experiences.</p>
-                <ul class="h-list gallery-thumbs left">
-                  <li><a title="Rocket Surgery Made Easy by Steve Krug" class=fancy-box href="images/rsme.png"><img alt="Rocket Surgery Made Easy book cover" src="images/rsme-sm.png"/></a></li>
-                </ul>
-                <p>Using Steve Krug&rsquo;s <i>Rocket Surgery Made Easy</i> as a guide, I planned and conducted the first ever usability tests for the company. The tests examined three participants&rsquo; ability to do simple editing tasks such as removing unwanted parts from a video, adding text, and organizing the order of clips in a project. The tests were streamed live to a room for team members to observe, and were followed up by a team discussion to determine next actions to fix the biggest problems.</p>
-                <p>The results showed that many assumptions of the effectiveness of basic UI were wrong. Not a single participant discovered or understood basic concepts of how to move the cursor, what was represented in the Timeline, or that elements in the Timeline were manipulatable.</p>
-              </section> 
-              <section class=project>
-                <h3>Slideshow Creator</h3>
-                <p class=job-desc>Interaction Design / User Research / C# Development</p>
-                <p class=goal>Provide a tool to create slideshows of images.</p>
-                <ul class="h-list gallery-thumbs">
-                  <li><a title="Slideshow Creator: initial empty state" class=fancy-box href="images/ss1.png"><img alt="Slideshow Creator: default state thumbnail" src="images/ss1-sm.png"/></a></li>
-                  <li><a title="Slideshow Creator: populated with pictures" class=fancy-box href="images/ss2.png"><img alt="Slideshow Creator: populated thumbnail" src="images/ss2-sm.png"/></a></li>
-                  <li><a title="Slideshow Creator: settings tab" class=fancy-box href="images/ss3.png"><img alt="Slideshow Creator: settings tab thumbnail" src="images/ss3-sm.png"/></a></li>
-                </ul>
-                <p>With two other members of User Experience team we researched the needs of users, iterated on wireframes and mockups, and implemented a tool that lets users select their media, configure their options, and insert a nice looking slideshow into their project with minimal clicks.</p>
-              </section> 
-              <section class=project>
-                <h3>Trimmer Window Improvements</h3>
-                <p class=job-desc>Interaction Design / C++ Development</p>
-                <p class=goal>Redesign the trimmer window to utilize space effectively.</p>
-                <ul class="h-list gallery-thumbs">
-                  <li><a title="Trimmer Window: default state" class=fancy-box href="images/t1.png"><img alt="Trimmer Window: default state thumbnail" src="images/t1-sm.png"/></a></li>
-                  <li><a title="Trimmer Window: timeline expanded and zoomed" class=fancy-box href="images/t2.png"><img alt="Trimmer Window: timeline expanded and zoomed thumbnail" src="images/t2-sm.png"/></a></li>
-                  <li><a title="Trimmer Window: narrow showing expanded menu" class=fancy-box href="images/t3.png"><img alt="Trimmer Window: narrow showing expanded menu thumbnail" src="images/t3-sm.png"/></a></li>
-                </ul>
-                <p>Once again, the User Experience team researched our users needs, and utilized many revisions of wireframes and mockups to design these improvements. We relied on progressive disclosure to prioritize the UI that was made available.</p>
-              </section> 
-              <section class=project>
-                <h3>Welcome Screen Design</h3>
-                <p class=job-desc>Interaction Design / User Research</p>
-                <p class=goal>New users may be overwhelmed by where to begin with Vegas Movie Studio. Point them in the right direction when the application first opens.</p>
-                <ul class="h-list gallery-thumbs right">
-                  <li><a title="Vegas Movie Studio Welcome Screen" class=fancy-box href="images/ws.png"><img alt="Welcome Screen thumbnail" src="images/ws-sm.png"></a></li>
-                </ul>
-                <p>It was also important to us to provide value to experienced users, &ldquo;Let&rsquo;s aim to keep users from disabling this start screen by giving them value too.&rdquo; Again, research, wireframes, and mockups resulted in a screen with big buttons and clear text to accommodate new users who want tutorials or the freedom to just play around. For experienced users, we provide a list of projects so they can get back to work quickly.</p>
-              </section> 
-            </section> 
-          </section> 
-        </div>
-        <footer class=clear>
-          <nav id=links class="fadeIn animated">
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="http://blog.lenny-s.com">Blog</a></li>
-              <li><a href="http://twitter.com/lsirivong">Twitter</a></li>
-            </ul>
-          </nav>
-        </footer>
+    <section class="block area">
+      <h2>Work</h2>
+      <ul class="projects">
+        <li class="project">
+          <h3><a href="http://saturdaysmagazine.com/">Saturdays Magazine</a></h3>
+          <p class="job-desc">HTML / CSS / jQuery</p>
+        </li>
+        <li class="project">
+          <h3><a href="http://www.michaelkors.com/trend/instakors/_/R-cat2450003">Michael Kors - #instakors</a></h3>
+          <p class="job-desc">Ruby on Rails / HTML / CSS / jQuery</p>
+        </li>
+        <li class="project">
+          <h3><a href="https://vimeo.com/80425351">AYR</a></h3>
+          <p class="job-desc">Ruby on Rails / Spreecommerce / HTML / CSS / jQuery</p>
+        </li>
+        <li class="project">
+          <h3><a href="http://mygirls.adidas.com/com/" target=_blank>Adidas #mygirls</a></h3>
+          <p class=job-desc>PHP / Silex / HTML / CSS / jQuery</p>
+        </li>
+        <li class="project">
+          <h3><a href="https://bluetreenetwork.com" target=_blank>BlueTree Network</a></h3>
+          <p class=job-desc>ASP.Net / MS SQL Server / HTML / CSS / jQuery</p>
+        </li>
+        <li class="project">
+          <h3><a href="http://nexcyon.com" target=_blank>Nexcyon</a></h3>
+          <p class=job-desc>HTML / CSS / jQuery</p>
+        </li>
+        <li class="project">
+          <h3><a href="http://khamchanhs.com" target=_blank>Khamchanh&rsquo;s Chinese Food</a></h3>
+          <p class=job-desc>Design / HTML / CSS</p>
+        </li>
+      </ul>
+    </section>
 
+    <script>var _gaq=[["_setAccount","UA-23057335-1"],["_trackPageview"],["_trackPageLoadTime"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)}(document,"script"));</script>
 
-
-
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-        <script>window.jQuery||document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>');</script>
-        <script type="text/javascript" src="js/mylibs/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-
-
-        <script defer src='js/a8e6e2a.js'></script>
-
-        <script>$(document).ready(function(){$("a.fancy-box").fancybox()});</script>
-
-
-        <script>var _gaq=[["_setAccount","UA-23057335-1"],["_trackPageview"],["_trackPageLoadTime"]];(function(e,a){var c=e.createElement(a),b=e.getElementsByTagName(a)[0];c.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";b.parentNode.insertBefore(c,b)}(document,"script"));</script>
-
-
-  <!--[if lt IE 7 ]><script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-  <script defer>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})});</script><![endif]-->
-
-
-  <script type="text/javascript" src="//use.typekit.net/rwb5zoy.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
+    <script src="//use.typekit.net/ibt6hhw.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
-        <!-- build:js scripts/main.js -->
-        <script src="scripts/main.js"></script>
-        <!-- endbuild -->
 </body>
 </html>
