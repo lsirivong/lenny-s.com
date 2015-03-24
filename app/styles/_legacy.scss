@@ -257,6 +257,9 @@ h1 {
   line-height: 1;
   margin: 0;
   float: left;
+  @media screen and (max-width:440px){
+    float: none;
+  }
 }
 
 h2 {
@@ -274,14 +277,28 @@ p {
 .welcome {
   background: $color-grey;
   border-radius: 3px;
-  margin: 3em auto;
+  margin: 0 auto;
   padding: 1em 1em 0.1px;
 }
 
-.block {
+.Grid {
+  clear: both;
+  font-size: 0;
+  margin: auto;
+  width: 100%;
+  max-width: 26rem;
+  @media screen and (min-width:1440px){
+    max-width: 52rem;
+  }
+}
+.Grid-item {
   max-width: 26em;
   margin: 3em auto;
   padding: 0 2em;
+  font-size: 1rem;
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
 }
 
 header {
@@ -300,19 +317,34 @@ header {
       color: inherit;
     }
   }
+  @media screen and (max-width:440px) {
+    text-align: center;
+  }
 }
 .nav {
   float: right;
   font-size: 0;
+
+  @media screen and (max-width:440px) {
+    float: none;
+    clear: both;
+    font-weight: 400;
+    margin: 0.25rem 0 0;
+  }
 }
 .nav li {
   display: inline-block;
   font-size: 1rem;
-}
-
-.area {
-  margin: 0 auto;
-  clear: both;
+  @media screen and (max-width:440px) {
+    font-size: 0.8rem;
+    &:after {
+      content: '\2022';
+      color: $color-light-grey;
+    }
+    &:last-child:after {
+      content: none;
+    }
+  }
 }
 
 .LinkList {
@@ -336,6 +368,7 @@ footer {
   text-align: center;
   margin: 3em 1em;
   color: $color-light-grey;
+  clear: both;
 }
 
 @media screen and (min-width:840px){
