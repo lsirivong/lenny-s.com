@@ -253,7 +253,7 @@ h1,h2,h3,h4,h5 {
 
 h1 {
   font-size: 1rem;
-  line-height: 1.2em;
+  line-height: 1;
   margin: 0;
   float: left;
 }
@@ -293,11 +293,13 @@ a:hover {
 header {
   overflow: hidden;
   background: $color-grey;
+  font-weight: $bold-weight;
 
   a {
     text-decoration: none;
-    padding: 0.25em 0.3em 0.2em;
+    padding: 0.35em 0.3em;
     display: inline-block;
+    line-height: 1;
     &:hover {
       // text-decoration: underline;
       background: rgba(0,0,0,0.1);
