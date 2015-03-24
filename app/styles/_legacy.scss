@@ -1,5 +1,6 @@
 $bold-weight: 600;
 $color-grey: #e3e3e3;
+$color-light-grey: #888;
 
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
   display: block;
@@ -31,23 +32,22 @@ body,button,input,select,textarea {
   color: #222;
 }
 
-a {
-  color: #00e;
-}
-
+a,
 a:visited {
-  color: #551a8b;
+  color: #222;
 }
 
-a:hover {
-  color: #06e;
+a:hover,
+a:focus {
+  color: #555;
 }
 
 a:focus {
   outline: thin dotted;
 }
 
-a:hover,a:active {
+a:hover,
+a:active {
   outline: 0;
 }
 
@@ -56,7 +56,8 @@ abbr[title] {
   cursor: help;
 }
 
-b,strong {
+b,
+strong {
   font-weight: $bold-weight;
 }
 
@@ -270,14 +271,6 @@ p {
   margin: 0 0 1em;
 }
 
-a,a:visited {
-  color: #222;
-}
-
-a:hover {
-  color: #555;
-}
-
 .welcome {
   background: $color-grey;
   border-radius: 3px;
@@ -288,6 +281,7 @@ a:hover {
 .block {
   max-width: 26em;
   margin: 3em auto;
+  padding: 0 2em;
 }
 
 header {
@@ -309,102 +303,39 @@ header {
 }
 .nav {
   float: right;
+  font-size: 0;
 }
-nav ul li {
+.nav li {
   display: inline-block;
+  font-size: 1rem;
 }
 
 .area {
   margin: 0 auto;
   clear: both;
-  padding: 0 2em;
 }
 
-.projects {
+.LinkList {
   margin: 0;
   padding: 0;
 }
 
-.project {
+.LinkList-item {
   padding: 0.5em 0;
   clear: both;
 }
 
-.job-desc {
+.LinkList-item-subhead {
   font-size: 0.8em;
   margin: 8px 0;
   line-height: 110%;
-  color: #888;
-}
-
-.goal {
-  font-style: italic;
-}
-
-.gallery-thumbs img:hover {
-  border-color: #a22;
+  color: $color-light-grey;
 }
 
 footer {
-  padding: 0 0 2em;
-}
-
-.ir {
-  display: block;
-  border: 0;
-  text-indent: -999em;
-  overflow: hidden;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  text-align: left;
-  direction: ltr;
-  *line-height: 0;
-}
-
-.ir br {
-  display: none;
-}
-
-.hidden {
-  display: none!important;
-  visibility: hidden;
-}
-
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.visuallyhidden.focusable:active,.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-.clearfix:before,.clearfix:after {
-  content: "";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-.clearfix {
-  *zoom: 1;
+  text-align: center;
+  margin: 3em 1em;
+  color: $color-light-grey;
 }
 
 @media screen and (min-width:840px){
