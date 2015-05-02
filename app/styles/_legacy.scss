@@ -1,6 +1,7 @@
 $bold-weight: 600;
 $color-grey: #e3e3e3;
 $color-light-grey: #888;
+$font-family-stack: "ff-basic-gothic-web-pro", Verdana, sans-serif;
 
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
   display: block;
@@ -27,7 +28,7 @@ html {
 }
 
 body,button,input,select,textarea {
-  font-family: "ff-basic-gothic-web-pro", Verdana, sans-serif;
+  font-family: $font-family-stack;
   font-weight: 400;
   color: #222;
 }
@@ -364,7 +365,7 @@ header {
   color: $color-light-grey;
 }
 
-footer {
+.footer {
   text-align: center;
   margin: 3em 1em;
   color: $color-light-grey;
