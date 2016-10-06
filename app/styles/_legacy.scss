@@ -2,6 +2,8 @@ $bold-weight: 600;
 $color-grey: #e3e3e3;
 $color-light-grey: #888;
 $font-family-stack: "ff-basic-gothic-web-pro", Verdana, sans-serif;
+$large-breakpoint: (1.8 * 16px * 52);
+$medium-breakpoint: (1 * 16px * 52);
 
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
   display: block;
@@ -288,7 +290,7 @@ p {
   margin: auto;
   width: 100%;
   max-width: 26rem;
-  @media screen and (min-width:1440px){
+  @media screen and (min-width: $medium-breakpoint){
     max-width: 52rem;
   }
 }
@@ -372,7 +374,7 @@ header {
   clear: both;
 }
 
-@media screen and (min-width:840px){
+@media screen and (min-width: $large-breakpoint){
   html {
     font-size: 1.8em;
   }
