@@ -370,8 +370,14 @@ header {
 .footer {
   text-align: center;
   margin: 3em 1em;
-  color: $color-light-grey;
   clear: both;
+}
+
+.Inactive-heading {
+  margin: 1em 0;
+  text-align: center;
+  border-bottom: 1px solid $color-light-grey;
+  padding-bottom: 1em;
 }
 
 @media screen and (min-width: $large-breakpoint){
