@@ -136,7 +136,7 @@ sub {
 
 ul,ol {
   margin: 1em 0;
-  padding: 0 0 0 40px;
+  padding: 0 0 0 16px;
 }
 
 dd {
@@ -306,8 +306,7 @@ p {
 
 header {
   overflow: hidden;
-  background: $color-grey;
-  font-weight: $bold-weight;
+  // background: $color-grey;
 
   a {
     text-decoration: none;
