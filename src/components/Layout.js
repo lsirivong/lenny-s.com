@@ -1,74 +1,78 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { Global, css } from '@emotion/core'
+import styled from '@emotion/styled'
+import { rhythm } from '../utils/typography'
 
-import { rhythm, scale } from '../utils/typography'
+const Container = styled.div`
+  margin: ${rhythm(1)};
+`
+
+const Footer = styled.footer`
+  text-align: center;
+`
+
+const globalStyles = css`
+  a {
+    color: #000;
+  }
+`
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: ${rhythm(1)};
+`
+
+const SecondaryLinks = styled.div`
+`
+
+const StyledLink = styled(Link)`
+  margin-left: 0.5em;
+`
 
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
-    let header
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-            marginBottom: rhythm(-1),
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
     return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        {header}
+      <Container>
+        <Global
+          styles={globalStyles}
+        />
+
+        <Header>
+          <Link
+            to={`/`}
+          >
+            Home
+          </Link>
+
+          <SecondaryLinks>
+            <StyledLink
+              to={`/`}
+            >
+              Work
+            </StyledLink>
+          </SecondaryLinks>
+        </Header>
+
         {children}
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+
+        <Footer>
+          © {new Date().getFullYear()} Lenny Sirivong
+          <p>
+            <a href="https://github.com/lsirivong">
+              Github
+            </a>
+            {` • `}
+            <a href="https://twitter.com/lsirivong">
+              Twitter
+            </a>
+          </p>
+        </Footer>
+      </Container>
     )
   }
 }
