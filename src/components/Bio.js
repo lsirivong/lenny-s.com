@@ -9,13 +9,8 @@ const Greeting = styled.div`
   display: flex;
 `
 
-const Pitch = styled.div`
-`
-
 const PureBio = ({ fixedImage, author, social }) => (
-  <div>
-    <Greeting>
-
+  <Greeting>
     <Image
       fixed={fixedImage}
       alt={author}
@@ -27,17 +22,10 @@ const PureBio = ({ fixedImage, author, social }) => (
       }}
     />
 
-      <p>
-        Hi! I’m a full stack web developer at Gin Lane living and working from Denver, CO.
-      </p>
-    </Greeting>
-
-    <Pitch>
-      <h2>
-        I build fast, maintainable, award-winning websites.
-      </h2>
-    </Pitch>
-  </div>
+    <p>
+      {author} is a full stack web developer, game maker, and rock climber.
+    </p>
+  </Greeting>
 )
 
 const Bio = () => (
