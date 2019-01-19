@@ -3,9 +3,12 @@ import { Link, graphql } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 
 import Bio from '../components/Bio'
-import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
+import styled from '@emotion/styled'
+
+const RendererContainer = styled.div`
+`
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -14,7 +17,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <h1>{post.frontmatter.title}</h1>
         <p
@@ -27,7 +30,11 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
-        <MDXRenderer>{post.code.body}</MDXRenderer>
+
+        <RendererContainer>
+          <MDXRenderer>{post.code.body}</MDXRenderer>
+        </RendererContainer>
+
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -59,7 +66,7 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
-      </Layout>
+      </>
     )
   }
 }

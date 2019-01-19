@@ -23,7 +23,7 @@ const PureBio = ({ fixedImage, author, social }) => (
     />
 
     <p>
-      {author} is a full stack web developer, game maker, and rock climber.
+      {author} is a full stack web developer and game maker.
     </p>
   </Greeting>
 )

@@ -4,18 +4,28 @@ import { Global, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { rhythm } from '../utils/typography'
 
+const globalStyles = css`
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: #000;
+  }
+`
+
 const Container = styled.div`
-  margin: ${rhythm(1)};
+  padding: ${rhythm(1)};
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
+
+const ContentContainer = styled.div`
 `
 
 const Footer = styled.footer`
   text-align: center;
-`
-
-const globalStyles = css`
-  a {
-    color: #000;
-  }
 `
 
 const Header = styled.header`
@@ -58,19 +68,26 @@ class Layout extends React.Component {
           </SecondaryLinks>
         </Header>
 
-        {children}
+        <ContentContainer>
+          {children}
+        </ContentContainer>
 
         <Footer>
           © {new Date().getFullYear()} Lenny Sirivong
-          <p>
-            <a href="https://github.com/lsirivong">
-              Github
-            </a>
-            {` • `}
-            <a href="https://twitter.com/lsirivong">
-              Twitter
-            </a>
-          </p>
+
+          <br />
+
+          <a href="https://github.com/lsirivong">
+            Github
+          </a>
+          {` • `}
+          <a href="https://twitter.com/lsirivong">
+            Twitter
+          </a>
+          {` • `}
+          <a href="https://lsirivong.itch.io">
+            Itch
+          </a>
         </Footer>
       </Container>
     )

@@ -14,14 +14,14 @@ const Title = styled.h3`
   margin-bottom: 0;
 `
 
-class BlogIndex extends React.Component {
+class Index extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMdx.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <>
         <SEO
           title="Lenny Sirivong"
           keywords={[]}
@@ -45,12 +45,12 @@ class BlogIndex extends React.Component {
             </div>
           )
         })}
-      </Layout>
+      </>
     )
   }
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
