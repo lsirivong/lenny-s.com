@@ -1,11 +1,14 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 
 import Bio from '../components/Bio'
-import Layout from '../components/Layout'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
+import { SpringLink, MySpring } from '../components/react-spring-animation'
+import DefaultTemplate from '../components/DefaultTemplate'
+
+import TransitionLink from 'gatsby-plugin-transition-link'
 
 const Header = styled.header`
   margin-bottom: ${rhythm(1 / 4)};
@@ -21,31 +24,39 @@ class Index extends React.Component {
     const posts = data.allMdx.edges
 
     return (
-      <>
-        <SEO
-          title="Lenny Sirivong"
-          keywords={[]}
-        />
+      <DefaultTemplate>
+          <SEO
+            title="Lenny Sirivong"
+            keywords={[]}
+          />
 
-        <Bio />
+          <Bio />
 
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <Header>
-                <Title>
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                    {title}
-                  </Link>
-                </Title>
-                <small>{node.frontmatter.date}</small>
-              </Header>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
-      </>
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <div key={node.fields.slug}>
+                <Header>
+                  <Title>
+                    <SpringLink
+                      to={node.fields.slug}
+                      enter={{
+                        duration: 0.3
+                      }}
+                      exit={{
+                        duration: 0.3
+                      }}
+                    >
+                      {title}
+                    </SpringLink>
+                  </Title>
+                  <small>{node.frontmatter.date}</small>
+                </Header>
+                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              </div>
+            )
+          })}
+      </DefaultTemplate>
     )
   }
 }
