@@ -21,41 +21,77 @@ class Index extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMdx.edges
+    const blogPosts = data.blogMdx.edges
+    const workPosts = data.workMdx.edges
 
     return (
       <DefaultTemplate>
-          <SEO
-            title="Lenny Sirivong"
-            keywords={[]}
-          />
+        <SEO
+          title="Lenny Sirivong"
+          keywords={[]}
+        />
 
-          <Bio />
+        <Bio />
 
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug
-            return (
-              <div key={node.fields.slug}>
-                <Header>
-                  <Title>
-                    <SpringLink
-                      to={node.fields.slug}
-                      enter={{
-                        duration: 0.3
-                      }}
-                      exit={{
-                        duration: 0.3
-                      }}
-                    >
-                      {title}
-                    </SpringLink>
-                  </Title>
-                  <small>{node.frontmatter.date}</small>
-                </Header>
-                <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              </div>
-            )
-          })}
+        <h2>
+          Recent Work
+        </h2>
+
+        {workPosts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          const path = `/work/${node.fields.slug}/`
+          return (
+            <div key={path}>
+              <Header>
+                <Title>
+                  <SpringLink
+                    to={path}
+                    enter={{
+                      duration: 0.3
+                    }}
+                    exit={{
+                      duration: 0.3
+                    }}
+                  >
+                    {title}
+                  </SpringLink>
+                </Title>
+                <small>{node.frontmatter.date}</small>
+              </Header>
+              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+            </div>
+          )
+        })}
+
+        <h2>
+          Recent Writing
+        </h2>
+
+        {blogPosts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          const path = `/blog/${node.fields.slug}/`
+          return (
+            <div key={path}>
+              <Header>
+                <Title>
+                  <SpringLink
+                    to={path}
+                    enter={{
+                      duration: 0.3
+                    }}
+                    exit={{
+                      duration: 0.3
+                    }}
+                  >
+                    {title}
+                  </SpringLink>
+                </Title>
+                <small>{node.frontmatter.date}</small>
+              </Header>
+              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+            </div>
+          )
+        })}
       </DefaultTemplate>
     )
   }
@@ -70,7 +106,35 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    blogMdx: allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter:{ fileAbsolutePath: { regex: "//blog/[^/]+/[^/]+$/g" }}) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+          }
+        }
+      }
+    }
+    workMdx: allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter:{ fileAbsolutePath: { regex: "//work/[^/]+/[^/]+$/g" }}) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+          }
+        }
+      }
+    }
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter:{ fileAbsolutePath: { regex: "//work/[^/]+/[^/]+$/g" }}) {
       edges {
         node {
           excerpt

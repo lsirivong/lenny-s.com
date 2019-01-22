@@ -15,6 +15,7 @@ exports.createPages = ({ graphql, actions }) => {
           edges {
             node {
               id
+              fileAbsolutePath
               fields {
                 slug
               }
@@ -41,8 +42,16 @@ exports.createPages = ({ graphql, actions }) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 
+      const dirRegex = /([^/]+)\/[^/]+\/[^/]+$/g
+      const dirMatch = dirRegex.exec(post.node.fileAbsolutePath)
+      const prefix = dirMatch[1]
+
+      const path = `/${prefix}${post.node.fields.slug}`
+
+      console.log({ path })
+
       createPage({
-        path: post.node.fields.slug,
+        path,
         component: blogPost,
         context: {
           slug: post.node.fields.slug,

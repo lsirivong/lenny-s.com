@@ -1,120 +1,79 @@
 ---
-title: New Beginnings
-date: '2015-05-28T22:40:32.169Z'
+title: 2019 Redesign with Gatsby
+date: '2019-01-21T22:24:31.427Z'
+tags:
+  - web dev
+  - gatsby
+  - react
+  - javascript
 ---
 
-Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean. A small river named
-Duden flows by their place and supplies it with the necessary regelialia.
+Most of my recent work, the projects I most enjoyed working on have been built on Gatsby, so I
+figured it was about time to update the ol' personal site with my favorite static React site generator.
 
-## On deer horse aboard tritely yikes and much
+## What's under the hood?
 
-The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.
+I started with `gatsby-starter-blog-mdx` and made some modifications to the way blog entries are
+handled. I want to be able to categorize posts between web development, game making, and any other
+category that I may fancy writing about.
 
-- This however showed weasel
-- Well uncritical so misled
-  - this is very interesting
-- Goodness much until that fluid owl
+## What did I learn?
 
-When she reached the first hills of the **Italic Mountains**, she had a last
-view back on the skyline of her hometown _Bookmarksgrove_, the headline of
-[Alphabet Village](http://google.com) and the subline of her own road, the Line
-Lane. Pityful a rethoric question ran over her cheek, then she continued her
-way. On her way she met a copy.
 
-### Overlaid the jeepers uselessly much excluding
+### `gatsby-mdx` is pretty flexible
 
-But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with
-[Longe and Parole](http://google.com) and dragged her into their agency, where
-they abused her for their projects again and again. And if she hasn’t been
-rewritten, then they are still using her.
+I wanted to be able to categorize posts between web development, game making, and any other
+category that I may fancy writing about.
 
-> Far far away, behind the word mountains, far from the countries Vokalia and
-> Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-> right at the coast of the Semantics, a large language ocean.
+In order to make this work I needed to make sure I'd be able to query for posts based on tags or
+maybe group the posts in a folder structure. The folder structure categorization felt clunky, I
+ended up querying everything and filtering the results based on the file path with a regex. The
+starter organizes writing under `/content/blog` so I figured I could add `/content/work` to
+categorize content related to client and personal work. But this didn't get picked up right away. It
+requires adding the folder to `gatsby-config.js` so that it gets picked up by the `file-system`
+gatsby source first. The easy fix here is instead add a root folder, with subfolders under it eg.
+`/content/writing/blog` and `/content/writing/work` and configure `/content/writing` to get picked
+up. Still, the regex file path matching feels pretty ugly and clumsy. It's also too restrictive, I'd
+rather have a multi-tag system that would allow writing to be categorized in a variety of ways. Who
+knows what kind of writing I'll end up doing here, so I don't want to box myself in to force every
+post to be about a singular topic.
 
-It is a paradisematic country, in which roasted parts of sentences fly into your
-mouth. Even the all-powerful Pointing has no control about the blind texts it is
-an almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar.
+Next I looked around at what is supported by the `allMdx` query, which I wasn't able to find much
+documentation for, but thankfully GraphQL is sort of self documenting so I was able to explore the
+interface with GraphiQL and find 
 
-### According a funnily until pre-set or arrogant well cheerful
-
-The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.
-
-1.  So baboon this
-2.  Mounted militant weasel gregariously admonishingly straightly hey
-3.  Dear foresaw hungry and much some overhung
-4.  Rash opossum less because less some amid besides yikes jeepers frenetic
-    impassive fruitlessly shut
-
-When she reached the first hills of the Italic Mountains, she had a last view
-back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-Village and the subline of her own road, the Line Lane. Pityful a rethoric
-question ran over her cheek, then she continued her way. On her way she met a
-copy.
-
-> The copy warned the Little Blind Text, that where it came from it would have
-> been rewritten a thousand times and everything that was left from its origin
-> would be the word "and" and the Little Blind Text should turn around and
-> return to its own, safe country.
-
-But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with Longe and Parole
-and dragged her into their agency, where they abused her for their projects
-again and again. And if she hasn’t been rewritten, then they are still using
-her. Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts.
-
-#### Silent delightfully including because before one up barring chameleon
-
-Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-large language ocean. A small river named Duden flows by their place and
-supplies it with the necessary regelialia. It is a paradisematic country, in
-which roasted parts of sentences fly into your mouth.
-
-Even the all-powerful Pointing has no control about the blind texts it is an
-almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox
-advised her not to do so, because there were thousands of bad Commas, wild
-Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.
-
-##### Wherever far wow thus a squirrel raccoon jeez jaguar this from along
-
-She packed her seven versalia, put her initial into the belt and made herself on
-the way. When she reached the first hills of the Italic Mountains, she had a
-last view back on the skyline of her hometown Bookmarksgrove, the headline of
-Alphabet Village and the subline of her own road, the Line Lane. Pityful a
-rethoric question ran over her cheek, then she continued her way. On her way she
-met a copy.
-
-###### Slapped cozy a that lightheartedly and far
-
-The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word "and" and the Little Blind Text should turn around and return
-to its own, safe country. But nothing the copy said could convince her and so it
-didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
-with Longe and Parole and dragged her into their agency, where they abused her
-for their projects again and again.
-
-#### Some highlighted code
-
-```js
-const some = {}
+```
+TODO put in video here
 ```
 
-#### A live code sample:
+Hey would you look at that! The arbitrary frontmatter data I've added is queryable. That's great,
+looks like this will work out perfectly.
 
-```js
-const onClick = () => { alert('clicked') }
-render(<button onClick={onClick}>Click Me!</button>)
-```
+### `gatsby-mdx` is pretty young
+
+While the flexible and robust, the fact that I needed to hunt around on my own to discover this
+fairly common feature highlights some of the weakspots of the gatsby-mdx ecosystem. The
+documentation is pretty light, lots of TODOs remaining.
+
+When I'm working I switch between a Mac laptop and a Windows tower pretty often, so I often guage
+the robustness of npm packages by their support for both. Lack of Windows support usually stems from
+very simple assumptions coded in about environment variables or file paths, they occur easily, and
+are relatively straight forward to fix.
+
+Spinning up `gatsby-starter-blog-mdx` raised an error on Windows about not finding a file. An
+issue has already been raised, and the underlying bug in `gatsby-mdx` was fixed, but it just needed
+to be upgraded in the starter. That was a pretty straightforward fix and OSS contribution for me to
+add to the collection :)
+
+
+## What's next?
+
+Well, now that I have a nice little system for categorizing my writing, I just need to... actually
+do some more writing :)
+
+
+[View source](https://github.com/lsirivong/lenny-s.com)
+
+
+
+
