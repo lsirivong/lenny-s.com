@@ -13,10 +13,15 @@ const globalStyles = css`
   a {
     color: #000;
   }
+
+  .tl-wrapper-outer {
+    overflow: hidden;
+  }
 `
 
 const Container = styled.div`
-  padding: ${rhythm(4)} ${rhythm(1)} ${rhythm(1)};
+  // padding: ${rhythm(4)} ${rhythm(1)} ${rhythm(1)};
+  padding: ${rhythm(3)} 0 0;
 `
 
 const ContentContainer = styled.div`
@@ -32,8 +37,8 @@ const Header = styled.header`
   left: 0;
   right: 0;
   padding: ${rhythm(1)};
-  background: rgba(200, 0, 0, 0.5);
-  z-index: 100;
+  background: rgba(200, 0, 0, 0.2);
+  z-index: 500;
 `
 
 const SecondaryLinks = styled.div`

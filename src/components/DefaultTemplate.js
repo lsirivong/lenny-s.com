@@ -7,9 +7,11 @@ import { MySpring } from '../components/react-spring-animation'
 
 
 const Container = styled.div`
-  min-height: calc(100vh - ${rhythm(5)});
+  min-height: calc(100vh - ${rhythm(3)});
   display: flex;
   flex-direction: column;
+  padding: ${rhythm(1)};
+  background: #fff;
 `
 
 const Inner = styled.div`
