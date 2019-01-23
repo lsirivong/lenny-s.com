@@ -18,7 +18,7 @@ const MySpring = ({ children }) => (
           }}
           config={{
             duration: seconds * 1000,
-            easing: easings.easeExpInOut,
+            easing: easings.easeCubicOut,
             delay: mount ? exit.length * 1000 : 0,
           }}
         >

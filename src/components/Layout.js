@@ -18,7 +18,7 @@ const globalStyles = theme => css`
   }
 
   a {
-    color: inherit;
+    color: ${theme.accent};
   }
 
   .tl-wrapper-outer {
@@ -44,7 +44,6 @@ const Header = styled.header`
   left: 0;
   right: 0;
   padding: ${rhythm(1)};
-  background: rgba(200, 0, 0, 0.2);
   z-index: 500;
 `
 
@@ -57,12 +56,16 @@ const StyledLink = styled(SpringLink)`
 
 const themes = {
   light: {
-    background: '#fff',
-    foreground: '#222',
+    background: '#fffffff',
+    foreground: '#000000',
+    accent: '#3a3277',
+    alt: '#6772a9',
   },
   dark: {
-    background: '#222',
-    foreground: '#e1e1e1',
+    background: '#000000',
+    foreground: '#ffffff',
+    accent: '#6772a9',
+    alt: '#3a3277',
   },
 }
 

@@ -11,8 +11,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: ${rhythm(1)};
-  background: ${props => props.theme.background};
-  transition: background 1s ease-out;
 `
 
 const Inner = styled.div`
