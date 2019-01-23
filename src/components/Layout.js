@@ -4,14 +4,21 @@ import { Global, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { rhythm } from '../utils/typography'
 import { SpringLink, MySpring } from '../components/react-spring-animation'
+import { ThemeProvider, withTheme } from 'emotion-theming'
 
-const globalStyles = css`
+const globalStyles = theme => css`
   * {
     box-sizing: border-box;
   }
 
+  body {
+    color: ${theme.foreground};
+    background: ${theme.background};
+    transition: background 1s ease-out, color 1s ease-out;
+  }
+
   a {
-    color: #000;
+    color: inherit;
   }
 
   .tl-wrapper-outer {
@@ -48,36 +55,68 @@ const StyledLink = styled(SpringLink)`
   margin-left: 0.5em;
 `
 
+const themes = {
+  light: {
+    background: '#fff',
+    foreground: '#222',
+  },
+  dark: {
+    background: '#222',
+    foreground: '#e1e1e1',
+  },
+}
+
+const GlobalWithTheme = withTheme(Global)
+
 class Layout extends React.Component {
+  state = {
+    darkTheme: false
+  }
+
   render() {
     const { location, title, children } = this.props
 
+    const theme = this.state.darkTheme ? themes.dark : themes.light
+
     return (
-      <Container>
-        <Global
-          styles={globalStyles}
-        />
+      <ThemeProvider theme={theme}>
+        <Container>
+          <Global
+            styles={globalStyles(theme)}
+          />
 
-        <Header>
-          <SpringLink
-            to={`/`}
-          >
-            Home
-          </SpringLink>
-
-          <SecondaryLinks>
-            <StyledLink
+          <Header>
+            <SpringLink
               to={`/`}
             >
-              Work
-            </StyledLink>
-          </SecondaryLinks>
-        </Header>
+              Home
+            </SpringLink>
 
-        <ContentContainer>
-          {children}
-        </ContentContainer>
-      </Container>
+            <SecondaryLinks>
+              <button
+                onClick={e => {
+                  e.preventDefault();
+                  this.setState(state => ({
+                    darkTheme: !state.darkTheme
+                  }))
+                }}
+              >
+                Toggle
+              </button>
+
+              <StyledLink
+                to={`/`}
+              >
+                Work
+              </StyledLink>
+            </SecondaryLinks>
+          </Header>
+
+          <ContentContainer>
+            {children}
+          </ContentContainer>
+        </Container>
+      </ThemeProvider>
     )
   }
 }
