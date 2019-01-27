@@ -2,11 +2,16 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import styled from '@emotion/styled'
-
 import { rhythm } from '../utils/typography'
 
 const Greeting = styled.div`
   display: flex;
+  margin-bottom: ${rhythm(2)};
+  align-items: center;
+`
+
+const Description = styled.p`
+  margin: 0;
 `
 
 const PureBio = ({ fixedImage, author, social }) => (
@@ -22,9 +27,9 @@ const PureBio = ({ fixedImage, author, social }) => (
       }}
     />
 
-    <p>
+    <Description>
       {author} is a full stack web developer and game maker.
-    </p>
+    </Description>
   </Greeting>
 )
 

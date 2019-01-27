@@ -158,5 +158,6 @@ module.exports = {
         layout: require.resolve(`./src/components/Layout.js`)
       }
     },
+    'gatsby-plugin-svgr',
   ],
 }

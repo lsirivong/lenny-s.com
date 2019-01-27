@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { rhythm } from '../utils/typography'
 
 const Container = styled.footer`
+  margin-top: ${rhythm(2)};
   text-align: center;
 `
 

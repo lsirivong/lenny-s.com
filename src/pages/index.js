@@ -21,8 +21,7 @@ class Index extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
-    const blogPosts = data.blogMdx.edges
-    const workPosts = data.workMdx.edges
+    const allMdx = data.allMdx.edges
 
     return (
       <DefaultTemplate>
@@ -33,13 +32,9 @@ class Index extends React.Component {
 
         <Bio />
 
-        <h2>
-          Recent Work
-        </h2>
-
-        {workPosts.map(({ node }) => {
+        {allMdx.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
-          const path = `/work/${node.fields.slug}/`
+          const path = `/blog${node.fields.slug}`
           return (
             <div key={path}>
               <Header>
@@ -58,37 +53,9 @@ class Index extends React.Component {
                 </Title>
                 <small>{node.frontmatter.date}</small>
               </Header>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
-
-        <h2>
-          Recent Writing
-        </h2>
-
-        {blogPosts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          const path = `/blog/${node.fields.slug}/`
-          return (
-            <div key={path}>
-              <Header>
-                <Title>
-                  <SpringLink
-                    to={path}
-                    enter={{
-                      duration: 0.3
-                    }}
-                    exit={{
-                      duration: 0.3
-                    }}
-                  >
-                    {title}
-                  </SpringLink>
-                </Title>
-                <small>{node.frontmatter.date}</small>
-              </Header>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+              <p>
+                {node.frontmatter.description}
+              </p>
             </div>
           )
         })}
@@ -106,7 +73,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    blogMdx: allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter:{ fileAbsolutePath: { regex: "//blog/[^/]+/[^/]+$/g" }}) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           excerpt
@@ -116,34 +83,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
-          }
-        }
-      }
-    }
-    workMdx: allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter:{ fileAbsolutePath: { regex: "//work/[^/]+/[^/]+$/g" }}) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-          }
-        }
-      }
-    }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }, filter:{ fileAbsolutePath: { regex: "//work/[^/]+/[^/]+$/g" }}) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
+            description
           }
         }
       }
