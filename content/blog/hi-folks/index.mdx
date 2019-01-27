@@ -21,25 +21,25 @@ category that I may fancy writing about.
 
 ### `gatsby-mdx` is pretty flexible
 
-I wanted to be able to categorize posts between web development, game making, and any other
-category that I may fancy writing about.
+To be able to categorize posts I needed to make sure I had a way to infer the post structure.
 
-In order to make this work I needed to make sure I'd be able to query for posts based on tags or
-maybe group the posts in a folder structure. The folder structure categorization felt clunky, I
-ended up querying everything and filtering the results based on the file path with a regex. The
-starter organizes writing under `/content/blog` so I figured I could add `/content/work` to
+My first approach was to
+query everything and filter the results based on the file path with a regex. The
+starter organizes mdx content under `/content/blog` so I figured I could add `/content/work` to
 categorize content related to client and personal work. But this didn't get picked up right away. It
 requires adding the folder to `gatsby-config.js` so that it gets picked up by the `file-system`
-gatsby source first. The easy fix here is instead add a root folder, with subfolders under it eg.
+gatsby source first. The easy fix here is to instead add a root folder, with subfolders under it eg.
 `/content/writing/blog` and `/content/writing/work` and configure `/content/writing` to get picked
-up. Still, the regex file path matching feels pretty ugly and clumsy. It's also too restrictive, I'd
+up.
+
+Still, regex file path matching feels pretty ugly and clumsy, and it's too restrictive of an approach. I'd
 rather have a multi-tag system that would allow writing to be categorized in a variety of ways. Who
 knows what kind of writing I'll end up doing here, so I don't want to box myself in to force every
 post to be about a singular topic.
 
 Next I looked around at what is supported by the `allMdx` query, which I wasn't able to find much
 documentation for, but thankfully GraphQL is sort of self documenting so I was able to explore the
-interface with GraphiQL and find 
+interface with GraphiQL and find
 
 ```
 TODO put in video here
@@ -48,21 +48,22 @@ TODO put in video here
 Hey would you look at that! The arbitrary frontmatter data I've added is queryable. That's great,
 looks like this will work out perfectly.
 
-### `gatsby-mdx` is pretty young
+### Signs of `gatsby-mdx`'s Immaturity
+
+#### Incomplete Documentation
 
 While flexible and robust, the fact that I needed to hunt around on my own to discover this
 fairly common feature highlights some of the weakspots of the gatsby-mdx ecosystem. The
-documentation is pretty light, lots of TODOs remaining.
+documentation site has a lot of pages that just say `TODO`.
 
-When I'm working I switch between a Mac laptop and a Windows tower pretty often, so I often guage
-the robustness of npm packages by their support for both. Lack of Windows support usually stems from
-very simple assumptions coded in about environment variables or file paths, they occur easily, and
-are relatively straight forward to fix.
+#### Early Windows Support
+
+Poor Windows support in package tooling usually stems from very simple assumptions coded in about
+environment variables or file paths.
 
 Spinning up `gatsby-starter-blog-mdx` raised an error on Windows about not finding a file. An
 issue has already been raised, and the underlying bug in `gatsby-mdx` was fixed, but it just needed
-to be upgraded in the starter. That was a pretty straightforward fix and OSS contribution for me to
-add to the collection :)
+to be upgraded in the starter. An easy fix, but a frustrating bump to run into nonetheless.
 
 
 ## What's next?
@@ -72,7 +73,3 @@ do some more writing :)
 
 
 [View source](https://github.com/lsirivong/lenny-s.com)
-
-
-
-

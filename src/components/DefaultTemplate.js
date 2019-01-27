@@ -11,6 +11,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: ${rhythm(1)};
+  max-width: 38em;
+  margin: auto;
 `
 
 const Inner = styled.div`
