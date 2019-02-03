@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import { rhythm } from '../utils/typography'
 import { SpringLink, MySpring } from '../components/react-spring-animation'
 import { ThemeProvider, withTheme } from 'emotion-theming'
+import ScrollTracker from '../components/ScrollTracker'
 import { ReactComponent as SunSvg } from '../components/svg/noun_sun_2148363.svg'
 import { ReactComponent as MoonSvg } from '../components/svg/noun_Moon_2148355.svg'
 
@@ -55,6 +56,11 @@ const Header = styled.header`
   right: 0;
   padding: ${rhythm(1)};
   z-index: 500;
+  background: ${({ theme }) => theme.background};
+  transition: transform 300ms ease-out;
+  ${({ scrollDirection }) => `
+    transform: translateY(${scrollDirection === 'down' ? -100 : 0}%);
+  `}
 `
 
 const PrimaryLinks = styled.div`
@@ -183,27 +189,31 @@ class Layout extends React.Component {
             styles={globalStyles(theme)}
           />
 
-          <Header>
-            <PrimaryLinks>
-              <SpringLink
-                to={`/`}
-              >
-                Home
-              </SpringLink>
-            </PrimaryLinks>
+          <ScrollTracker>
+            {({ scrollDirection }) => (
+              <Header scrollDirection={scrollDirection}>
+                <PrimaryLinks>
+                  <SpringLink
+                    to={`/`}
+                  >
+                    Home
+                  </SpringLink>
+                </PrimaryLinks>
 
-            <SecondaryLinks>
-              <ToggleTheme
-                isActive={this.state.darkTheme}
-                onClick={e => {
-                  e.preventDefault();
-                  this.setState(state => ({
-                    darkTheme: !state.darkTheme
-                  }))
-                }}
-              />
-            </SecondaryLinks>
-          </Header>
+                <SecondaryLinks>
+                  <ToggleTheme
+                    isActive={this.state.darkTheme}
+                    onClick={e => {
+                      e.preventDefault();
+                      this.setState(state => ({
+                        darkTheme: !state.darkTheme
+                      }))
+                    }}
+                  />
+                </SecondaryLinks>
+              </Header>
+            )}
+          </ScrollTracker>
 
           <ContentContainer>
             {children}
