@@ -57,10 +57,15 @@ const Header = styled.header`
   padding: ${rhythm(1)};
   z-index: 500;
   background: ${({ theme }) => theme.background};
-  transition: transform 300ms ease-out;
+  transition: transform 300ms ease-out,
+    background ${themeTransitionDuration} ${themeTransitionEase}, color ${themeTransitionDuration} ${themeTransitionEase};
   ${({ scrollDirection }) => `
     transform: translateY(${scrollDirection === 'down' ? -100 : 0}%);
   `}
+  @media (min-width: 920px) {
+    transform: none;
+    background: transparent;
+  }
 `
 
 const PrimaryLinks = styled.div`
