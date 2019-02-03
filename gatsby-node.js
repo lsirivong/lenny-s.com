@@ -48,8 +48,6 @@ exports.createPages = ({ graphql, actions }) => {
 
       const path = `/${prefix}${post.node.fields.slug}`
 
-      console.log({ path })
-
       createPage({
         path,
         component: blogPost,

@@ -1,5 +1,5 @@
 ---
-title: 2019 Redesign with Gatsby
+title: 2019 Rebuild with Gatsby
 date: '2019-01-21T22:24:31.427Z'
 description: A new year, a new personal website. Built with Gatsby.
 tags:
@@ -37,13 +37,17 @@ rather have a multi-tag system that would allow writing to be categorized in a v
 knows what kind of writing I'll end up doing here, so I don't want to box myself in to force every
 post to be about a singular topic.
 
+### GraphiQL to the Rescue
+
 Next I looked around at what is supported by the `allMdx` query, which I wasn't able to find much
 documentation for, but thankfully GraphQL is sort of self documenting so I was able to explore the
 interface with GraphiQL and find
 
-```
-TODO put in video here
-```
+<video
+  controls
+  alt="Screen recording of using GraphiQL to discover tag filters in the allMDX query"
+  src="/browsing-mdx-graphql.mp4"
+/>
 
 Hey would you look at that! The arbitrary frontmatter data I've added is queryable. That's great,
 looks like this will work out perfectly.
