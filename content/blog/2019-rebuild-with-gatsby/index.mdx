@@ -9,71 +9,76 @@ tags:
   - javascript
 ---
 
-Most of my recent work, the projects I most enjoyed working on have been built on Gatsby, so I figured it was about time to update the ol' personal site with my favorite static React site generator.
+Most of my recent work, the projects I most enjoyed working on have been built
+on Gatsby, so I figured it was about time to update the ol' personal site with
+my favorite static React site generator.
 
 ## What's under the hood?
 
-I started with `gatsby-starter-blog-mdx` and made some modifications to the way blog entries are
-handled. I want to be able to categorize posts between web development, game making, and any other
-category that I may fancy writing about.
+I started with `gatsby-starter-blog-mdx` and made some modifications to the way
+blog entries are handled. I want to be able to categorize posts between web
+development, game making, and any other category that I may fancy writing
+about.
 
 ## What did I learn?
 
 ### `gatsby-mdx` is pretty flexible
 
-To be able to categorize posts I needed to make sure I had a way to infer the post structure.
+To be able to categorize posts I needed to make sure I had a way to infer the
+post structure.
 
-My first approach was to
-query everything and filter the results based on the file path with a regex. The
-starter organizes mdx content under `/content/blog` so I figured I could add `/content/work` to
-categorize content related to client and personal work. But this didn't get picked up right away. It
-requires adding the folder to `gatsby-config.js` so that it gets picked up by the `file-system`
-gatsby source first. The easy fix here is to instead add a root folder, with subfolders under it eg.
-`/content/writing/blog` and `/content/writing/work` and configure `/content/writing` to get picked
-up.
+My first approach was to query everything and filter the results based on the
+file path with a regex. The starter organizes mdx content under `/content/blog`
+so I figured I could add `/content/work` to categorize content related to
+client and personal work. But this didn't get picked up right away. It requires
+adding the folder to `gatsby-config.js` so that it gets picked up by the
+`file-system` gatsby source first. The easy fix here is to instead add a root
+folder, with subfolders under it eg. `/content/writing/blog` and
+`/content/writing/work` and configure `/content/writing` to get picked up.
 
-Still, regex file path matching feels pretty ugly and clumsy, and it's too restrictive of an approach. I'd
-rather have a multi-tag system that would allow writing to be categorized in a variety of ways. Who
-knows what kind of writing I'll end up doing here, so I don't want to box myself in to force every
-post to be about a singular topic.
+Still, regex file path matching feels pretty ugly and clumsy, and it's too
+restrictive of an approach. I'd rather have a multi-tag system that would allow
+writing to be categorized in a variety of ways. Who knows what kind of writing
+I'll end up doing here, so I don't want to box myself in to force every post to
+be about a singular topic.
 
 ### GraphiQL to the Rescue
 
-Next I looked around at what is supported by the `allMdx` query, which I wasn't able to find much
-documentation for, but thankfully GraphQL is sort of self documenting so I was able to explore the
-interface with GraphiQL and find
+Next I looked around at what is supported by the `allMdx` query, which I wasn't
+able to find much documentation for, but thankfully GraphQL is sort of self
+documenting so I was able to explore the interface with GraphiQL and find
 
 <video
   controls
-  alt="Screen recording of using GraphiQL to discover tag filters in the allMDX query"
+  alt="Screen recording showing discovery of allMDX query tag filters in GraphiQL"
   src="/browsing-mdx-graphql.mp4"
 />
 
-Hey would you look at that! The arbitrary frontmatter data I've added is queryable. That's great,
-looks like this will work out perfectly.
+Hey would you look at that! The arbitrary frontmatter data I've added is
+queryable. That's great, looks like this will work out perfectly.
 
 ### Signs of `gatsby-mdx`'s Immaturity
 
 #### Incomplete Documentation
 
-While flexible and robust, the fact that I needed to hunt around on my own to discover this
-fairly common feature highlights some of the weakspots of the gatsby-mdx ecosystem. The
-documentation site has a lot of pages that just say `TODO`.
+While flexible and robust, the fact that I needed to hunt around on my own to
+discover this fairly common feature highlights some of the weakspots of the
+gatsby-mdx ecosystem. The documentation site has a lot of pages that just say
+`TODO`.
 
 #### Early Windows Support
 
-Poor Windows support in package tooling usually stems from very simple assumptions coded in about
-environment variables or file paths.
+Poor Windows support in package tooling usually stems from very simple
+assumptions coded in about environment variables or file paths.
 
-Spinning up `gatsby-starter-blog-mdx` raised an error on Windows about not finding a file. An
-issue has already been raised, and the underlying bug in `gatsby-mdx` was fixed, but it just needed
-to be upgraded in the starter. An easy fix, but a frustrating bump to run into nonetheless.
-
+Spinning up `gatsby-starter-blog-mdx` raised an error on Windows about not
+finding a file. An issue has already been raised, and the underlying bug in
+`gatsby-mdx` was fixed, but it just needed to be upgraded in the starter. An
+easy fix, but a frustrating bump to run into nonetheless.
 
 ## What's next?
 
-Well, now that I have a nice little system for categorizing my writing, I just need to... actually
-do some more writing :)
-
+Well, now that I have a nice little system for categorizing my writing, I just
+need to... actually do some more writing :)
 
 [View source](https://github.com/lsirivong/lenny-s.com)
