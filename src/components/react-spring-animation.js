@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React from 'react'
 import { Spring } from 'react-spring'
 import TransitionLink, { TransitionState } from 'gatsby-plugin-transition-link'
@@ -6,16 +7,13 @@ import * as easings from 'd3-ease'
 const MySpring = ({ children }) => (
   <TransitionState>
     {({ transitionStatus, exit, entry }) => {
+      const mount = _.includes([
+        'entering',
+        'entered',
+        'POP', // transition from history navigation
+      ], transitionStatus)
+      const unmount = transitionStatus === 'exiting'
 
-      // If transitioning from history nav, just render without transition styles
-      if (transitionStatus === 'POP') {
-        return (
-          children
-        )
-      }
-
-      const mount = ['entering', 'entered'].includes(transitionStatus)
-      const unmount = ['exiting'].includes(transitionStatus)
       const seconds = mount ? entry.length : exit.length
 
       return (
