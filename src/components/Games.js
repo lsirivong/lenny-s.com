@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { rhythm } from '../utils/typography'
 import Game from '../components/Game'
-import { StaticQuery } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 
 const games = [
   {
