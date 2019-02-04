@@ -63,10 +63,10 @@ const games = [
   },
 ]
 
-const findFixedImage = (data, image) => (
+const findImage = (data, image) => (
   _.get(
     _.find(data.images.edges, edge => edge.node.name === image),
-    'node.childImageSharp.fixed'
+    'node.childImageSharp.fluid'
   )
 )
 
@@ -81,7 +81,7 @@ export default () => (
           >
             <Game
               {...game}
-              imageFixed={findFixedImage(data, game.image)}
+              imageFluid={findImage(data, game.image)}
             />
             {i < games.length - 1 ? (
               <hr />
@@ -100,8 +100,8 @@ const gameImageQuery = graphql`
         node {
           name
           childImageSharp {
-            fixed(width: 315, height: 250) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 315) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

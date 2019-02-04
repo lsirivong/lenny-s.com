@@ -5,29 +5,42 @@ import { rhythm } from '../utils/typography'
 import Image from 'gatsby-image'
 import { themeTransitionEase, themeTransitionDuration } from '../utils/animations'
 
+const largerThanSmall = `@media (min-width: 481px)`
+
 const Container = styled.div`
   display: block;
   margin: ${rhythm(2)} 0;
   display: grid;
   overflow: hidden;
-  grid-template-columns: 1fr 1fr;
-`
-
-const Content = styled.div`
-  padding-left: ${rhythm(1)};
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  grid-gap: ${rhythm(1)};
 `
 
 const Header = styled.header`
-  margin-bottom: ${rhythm(1)};
-`
-
-const Description = styled.div`
 `
 
 const Thumb = styled(Image)`
+  ${largerThanSmall} {
+    grid-row: 1 / 3;
+  }
+`
+
+const Description = styled.dl`
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-column-gap: ${rhythm(1)};
+  ${largerThanSmall} {
+    grid-column: 2 / -1;
+  }
+  *:nth-of-type(n) {
+    grid-column: 1 / 2;
+  }
+  *:nth-of-type(2n) {
+    grid-column: 2 / 3;
+  }
 `
 
 const Button = styled.a`
@@ -58,59 +71,51 @@ export default ({
   rankingUrl,
   time,
   theme,
-  imageFixed,
+  imageFluid,
 }) => (
   <Container>
-    {imageFixed && (
+    {imageFluid && (
       <Thumb
-        fixed={imageFixed}
+        fluid={imageFluid}
       />
     )}
-    <Content>
-      <Description>
-        <Header>
-          <Name>
-            {name}
-          </Name>
-          <small>
-            {date}
-          </small>
-        </Header>
 
-        <dl>
-          <dt>
-            Jam
-          </dt>
-          <dd>
-            {listify(jam)}
-          </dd>
-          <dt>
-            Theme
-          </dt>
-          <dd>
-            {listify(theme)}
-          </dd>
-          <dt>
-            Jam Duration
-          </dt>
-          <dd>
-            {time}
-          </dd>
-          <dt>
-            Ranking
-          </dt>
-          <dd>
-            <a href={rankingUrl}>
-              {ranking}
-            </a>
-          </dd>
-        </dl>
-      </Description>
-      <Button
-        href={url}
-      >
-        Play Now
-      </Button>
-    </Content>
+    <Header>
+      <Name>
+        {name}
+      </Name>
+      <small>
+        {date}
+      </small>
+    </Header>
+
+    <Description>
+      <dt>
+        Jam
+      </dt>
+      <dd>
+        {listify(jam)}
+      </dd>
+      <dt>
+        Theme
+      </dt>
+      <dd>
+        {listify(theme)}
+      </dd>
+      <dt>
+        Jam Duration
+      </dt>
+      <dd>
+        {time}
+      </dd>
+      <dt>
+        Ranking
+      </dt>
+      <dd>
+        <a href={rankingUrl}>
+          {ranking}
+        </a>
+      </dd>
+    </Description>
   </Container>
 )
