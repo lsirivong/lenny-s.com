@@ -6,6 +6,14 @@ import * as easings from 'd3-ease'
 const MySpring = ({ children }) => (
   <TransitionState>
     {({ transitionStatus, exit, entry }) => {
+
+      // If transitioning from history nav, just render without transition styles
+      if (transitionStatus === 'POP') {
+        return (
+          children
+        )
+      }
+
       const mount = ['entering', 'entered'].includes(transitionStatus)
       const unmount = ['exiting'].includes(transitionStatus)
       const seconds = mount ? entry.length : exit.length
