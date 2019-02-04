@@ -10,6 +10,12 @@ export default theme => css`
     box-sizing: border-box;
   }
 
+  @media (max-width: 518px) {
+    html {
+      font-size: 100%;
+    }
+  }
+
   body {
     color: ${theme.foreground};
     background: ${theme.background};

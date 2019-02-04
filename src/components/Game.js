@@ -26,23 +26,6 @@ const Thumb = styled(Image)`
   }
 `
 
-const Description = styled.dl`
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-flow: column;
-  grid-column-gap: ${rhythm(1)};
-  ${largerThanSmall} {
-    grid-column: 2 / -1;
-  }
-  *:nth-of-type(n) {
-    grid-column: 1 / 2;
-  }
-  *:nth-of-type(2n) {
-    grid-column: 2 / 3;
-  }
-`
-
 const Button = styled.a`
   display: inline-block;
   padding: ${rhythm(0.5)} ${rhythm(1)};
@@ -56,10 +39,36 @@ const Button = styled.a`
   `};
 `
 
+const Description = styled.dl`
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-column-gap: ${rhythm(1)};
+  margin: 0;
+  ${largerThanSmall} {
+    grid-column: 2 / -1;
+  }
+  *:nth-of-type(n) {
+    grid-column: 1 / 2;
+  }
+  *:nth-of-type(2n) {
+    grid-column: 2 / 3;
+  }
+  ${Button}:nth-of-type(n) {
+    grid-column: 1 / -1;
+  }
+`
+
 const listify = v => _.isArray(v) ? v.join(', ') : v
 
 const Name = styled.h3`
-  margin: 0;
+  margin: 0 0 ${rhythm(0.5)};
+`
+
+const Meta = styled.small`
+  display: block;
+  line-height: 1;
 `
 
 export default ({
@@ -82,11 +91,13 @@ export default ({
 
     <Header>
       <Name>
-        {name}
+        <a href={url}>
+          {name}
+        </a>
       </Name>
-      <small>
+      <Meta>
         {date}
-      </small>
+      </Meta>
     </Header>
 
     <Description>
@@ -116,6 +127,12 @@ export default ({
           {ranking}
         </a>
       </dd>
+
+      <Button
+        href={url}
+      >
+        Play on itch.io
+      </Button>
     </Description>
   </Container>
 )
