@@ -125,6 +125,12 @@ const Nav = ({ darkTheme, onToggle }) => (
           >
             Home
           </StyledLink>
+
+          <StyledLink
+            to="/games/"
+          >
+            Games
+          </StyledLink>
         </PrimaryLinks>
 
         <SecondaryLinks>

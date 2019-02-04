@@ -2,6 +2,7 @@ export default {
   light: {
     background: '#ffffff',
     foreground: '#000000',
+    border: `rgba(0, 0, 0, 0.2)`,
     codeBackground: `rgba(0, 0, 0, 0.1)`,
     accent: '#3a3277',
     alt: '#6772a9',
@@ -10,6 +11,7 @@ export default {
   dark: {
     background: '#000000',
     foreground: '#ffffff',
+    border: `rgba(255, 255, 255, 0.5)`,
     codeBackground: `rgba(255, 255, 255, 0.25)`,
     accent: '#6772a9',
     alt: '#3a3277',
