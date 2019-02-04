@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { rhythm } from '../utils/typography'
+import { SpringLink } from '../components/react-spring-animation'
 
 const Container = styled.footer`
   margin-top: ${rhythm(2)};
@@ -24,6 +25,12 @@ const Footer = () => (
     <a href="https://lsirivong.itch.io">
       Itch
     </a>
+    {` • `}
+    <SpringLink
+      to="/resume/"
+    >
+      Resume
+    </SpringLink>
   </Container>
 )
 

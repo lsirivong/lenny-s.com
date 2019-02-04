@@ -26,7 +26,7 @@ class Index extends React.Component {
     return (
       <DefaultTemplate>
         <SEO
-          title="Lenny Sirivong"
+          title="Full Stack Web Developer & Game Maker"
           keywords={[]}
         />
 

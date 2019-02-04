@@ -40,8 +40,13 @@ const MySpring = ({ children }) => (
 
 const length = 0.5
 
-const SpringLink = ({ to, children }) => (
-  <TransitionLink to={to} exit={{ length }} entry={{ length: 1.5 }}>
+const SpringLink = ({ to, children, ...rest }) => (
+  <TransitionLink
+    to={to}
+    exit={{ length }}
+    entry={{ length: 1.5 }}
+    {...rest}
+  >
     {children}
   </TransitionLink>
 )

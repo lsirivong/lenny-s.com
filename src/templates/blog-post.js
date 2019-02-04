@@ -20,54 +20,54 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <DefaultTemplate>
-          <SEO title={post.frontmatter.title} description={post.excerpt} />
-          <h1>{post.frontmatter.title}</h1>
-          <p
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
-              marginTop: rhythm(-1),
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
+        <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <h1>{post.frontmatter.title}</h1>
+        <p
+          style={{
+            ...scale(-1 / 5),
+            display: `block`,
+            marginBottom: rhythm(1),
+            marginTop: rhythm(-1),
+          }}
+        >
+          {post.frontmatter.date}
+        </p>
 
-          <RendererContainer>
-            <MDXRenderer>{post.code.body}</MDXRenderer>
-          </RendererContainer>
+        <RendererContainer>
+          <MDXRenderer>{post.code.body}</MDXRenderer>
+        </RendererContainer>
 
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
-          />
-          <Bio />
+        <hr
+          style={{
+            marginBottom: rhythm(1),
+          }}
+        />
+        <Bio />
 
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <SpringLink to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </SpringLink>
-              )}
-            </li>
-            <li>
-              {next && (
-                <SpringLink to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </SpringLink>
-              )}
-            </li>
-          </ul>
+        <ul
+          style={{
+            display: `flex`,
+            flexWrap: `wrap`,
+            justifyContent: `space-between`,
+            listStyle: `none`,
+            padding: 0,
+          }}
+        >
+          <li>
+            {previous && (
+              <SpringLink to={previous.fields.slug} rel="prev">
+                ← {previous.frontmatter.title}
+              </SpringLink>
+            )}
+          </li>
+          <li>
+            {next && (
+              <SpringLink to={next.fields.slug} rel="next">
+                {next.frontmatter.title} →
+              </SpringLink>
+            )}
+          </li>
+        </ul>
       </DefaultTemplate>
     )
   }

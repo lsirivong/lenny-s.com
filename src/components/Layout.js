@@ -47,6 +47,14 @@ const globalStyles = theme => css`
 
   }
 
+  hr {
+    width: 266px;
+    margin: ${rhythm(1)} auto;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid ${theme.codeBackground};
+  }
+
   .tl-wrapper-outer {
     overflow: hidden;
   }
@@ -90,7 +98,8 @@ const SecondaryLinks = styled.div`
 `
 
 const StyledLink = styled(SpringLink)`
-  margin-left: 0.5em;
+  margin-right: 0.5em;
+  display: inline-block;
 `
 
 const themes = {
@@ -215,11 +224,11 @@ class Layout extends React.Component {
             {({ scrollDirection }) => (
               <Header scrollDirection={scrollDirection}>
                 <PrimaryLinks>
-                  <SpringLink
-                    to={`/`}
+                  <StyledLink
+                    to="/"
                   >
                     Home
-                  </SpringLink>
+                  </StyledLink>
                 </PrimaryLinks>
 
                 <SecondaryLinks>
