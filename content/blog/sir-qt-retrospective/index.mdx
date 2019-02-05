@@ -1,0 +1,79 @@
+---
+title: The SIR Q.T Retrospective
+date: '2018-11-21T18:20:14.000Z'
+description: Collaboration, focusing on the right things, and letting go of "best practices".
+tags:
+  - game jam
+  - retrospective
+  - javascript
+---
+
+> *Note: this was [originally posted as a devlog on itch.io][7] for my game jam entry ["SIR Q.T"][8].*
+
+After every jam my head is buzzing, I feel disoriented as I finally pick up my head after a few straight days of work, and I’m excited and nervous for how it will be recieved by the community. As the fog settles from the weekend, it’s helpful to reflect on the process to find what went well and what mistakes could be avoided in the future.  
+
+I’m mostly writing this for myself (hi, self!), but I’m hoping that by sharing it some other jammers might find something useful in it.
+
+## Background
+
+This was my second entry into [Mini Jam][1], a jam that takes place every other week from Thursday night until Sunday night for a total of 72 hours, and my fourth game jam entry overall. I teamed up with [gtibo][2], and this is my first experience working on a team for a jam.
+
+## Collaborating
+
+Working with a partner changes the dynamic of a game jam entry a lot.
+
+*   I felt more pressure to deliver my best
+*   It’s more important to know early on what the game will be and to be more organized
+*   I felt like it may have hampered our freedom for experimention. When working alone I’d be more willing to pursue something that may have not have immediate promise as an idea. But on the flipside…
+*   …collaborating on the game idea helped us land on something playable much more quickly than if I was working alone.
+
+Overall, I’m really glad that we teamed up. I learned a ton in the process, and the end result was much more polished than any of my previous solo entries.
+
+## Focusing
+
+The biggest challenge for a weekend jam is working on the right things in the amount of time that you have. This is always the case, ambitions outgrow what can be done, but there were very simple things that I could have done to plan better.
+
+I wasted too much time setting up a [webpack][3] build process - something I’m used to needing to do for the web developement work I do for my day job, but is really uneccessary for a jam and I think it ended up getting in our way. I should have taken a more practical & flexible approach.
+
+We completely omitted a huge piece of the game because we just didn't give it any priority: audio. With some planning, I could have spent an hour or two looking for free assets that would have easily fit into our game.
+
+## Everything Else
+
+Collaboration and planning were my biggest takeaways as I look back on the weekend, but there were a lot of other things I learned in the process.
+
+### What went right?
+
+*   We finished a game! I think we planned the scope of the gameplay well. Core mechanic was achievable and could be built upon
+*   Good collaboration, especially considering 8 hour time difference - clear communication about what each other are working on and what needs to be done.
+*   Really nice to use Javascript, where I am most comfortable. This meant I could add any package I’m comfortable with (eg. [Lodash][4])
+*   Sharing progress in Discord WIP channel was motivating and got useful feedback
+*   [Tiled][5] was a great tool for level creation for this type of game
+
+### What went wrong?
+
+*   Over engineering - I spent too much time setting up a webpack build environment. Not only a waste of time, but it also complicated the dev environment.
+*   Didn’t build out enough levels - more time should have been allocated to them
+*   Learning a new framework during a 72 hour jam is too time consuming
+*   Not a fan of [Phaser][6], the documentation is tough to navigate, and API is lacking in some aspects that I would like covered (eg. unified input abstraction like Unity has)
+*   Our game had no sound - need to plan for it
+
+### What else should be done differently next time?
+
+*   Make a plan for SFX and Music. It’s important, especially as this jam always lists it as a rating category
+*   Use an engine I’m already comfortable with, and with a more modern developer experience (like Unity)
+*   Be more resourceful - use resources like free assets and look for sample code before diving in
+*   Be more prepared - reduce usage of tools that require learning. get more experience with audio, sprite, animation, and tilemap editors, and the game engine before going in
+*   Use tools for collaboration - Use a shared kanban or todolist, an online whiteboarding site etc.
+
+## Summary
+
+It’s been another really fulfilling jam, and I got what I wanted out of it: to learn more about the process of making games. I’ve played every entry from the jam and it’s so cool to see the novel ideas and the effort that went into every one of them. I look forward to learning even more in the next one.
+
+[1]: http://minjamofficial.com
+[2]: https://gtibo.itch.io
+[3]: https://webpack.js.org/
+[4]: https://lodash.com/
+[5]: https://www.mapeditor.org/
+[6]: https://phaser.io/
+[7]: https://lsirivong.itch.io/sirqt/devlog/56943/the-sir-qt-retrospective
+[8]: https://lsirivong.itch.io/sirqt
