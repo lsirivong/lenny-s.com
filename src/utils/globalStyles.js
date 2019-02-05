@@ -31,6 +31,9 @@ export default theme => css`
       border-color: ${theme.accent};
     }
   }
+  .gatsby-resp-image-link {
+    border: 0;
+  }
 
   image, video {
     max-width: 100%;
