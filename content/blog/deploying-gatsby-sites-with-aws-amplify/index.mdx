@@ -29,7 +29,7 @@ Github is worth the effort to set up some kind of deployment pipeline.
 
 Really, the deployment was set up mostly automatically. From the Amplify console, I
 chose "Connect app" and from there I just had to authenticate my github account and
-chose my repository. The rest was a matter of clicking "Next".
+choose my repository. The rest was a matter of clicking "Next".
 
 ![AWS Amplify Screenshot: Adding a Github Repository](./amplify-add-repository.png)
 
@@ -46,12 +46,12 @@ Route53 which made the record creation, again, automatic.
 ![AWS Amplify Screenshot: Domain Management](./amplify-domain-management.png)
 
 The one gotcha here is that I had an existing `www` record which prevented adding
-the domain with a permissions error. Once I delwted that, Amplify created a root
-record, a `www` record to redirect to root, and set up some validation record
+the domain with a permissions error. Once I dealt with that, Amplify created a root
+record, a `www` record to redirect to root, and a validation record
 which I believe it uses to validate ownership for the free SSL cert they issue.
 
 And that was it! My github repository now deploys the latest commits on master to my
-live production site.
+live URL.
 
 ## Initial impressions
 

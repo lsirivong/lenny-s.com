@@ -55,14 +55,14 @@ class BlogPostTemplate extends React.Component {
         >
           <li>
             {previous && (
-              <SpringLink to={previous.fields.slug} rel="prev">
+              <SpringLink to={`/blog${previous.fields.slug}`} rel="prev">
                 ← {previous.frontmatter.title}
               </SpringLink>
             )}
           </li>
           <li>
             {next && (
-              <SpringLink to={next.fields.slug} rel="next">
+              <SpringLink to={`/blog${next.fields.slug}`} rel="next">
                 {next.frontmatter.title} →
               </SpringLink>
             )}
