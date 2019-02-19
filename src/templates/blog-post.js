@@ -1,15 +1,21 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 
 import Bio from '../components/Bio'
 import SEO from '../components/seo'
-import { rhythm, scale } from '../utils/typography'
+import { rhythm } from '../utils/typography'
 import { styled } from 'linaria/react';
 import DefaultTemplate from '../components/DefaultTemplate'
-import { SpringLink, MySpring } from '../components/react-spring-animation'
+// import { SpringLink, MySpring } from '../components/react-spring-animation'
 
 const RendererContainer = styled.div`
+`
+
+const Timestamp = styled.p`
+  font-size: 0.87055rem;
+  margin-bottom: ${rhythm(1)};
+  margin-top: ${rhythm(-0.5)};
 `
 
 class BlogPostTemplate extends React.Component {
@@ -22,16 +28,9 @@ class BlogPostTemplate extends React.Component {
       <DefaultTemplate>
         <SEO title={post.frontmatter.title} description={post.excerpt} />
         <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
+        <Timestamp>
           {post.frontmatter.date}
-        </p>
+        </Timestamp>
 
         <RendererContainer>
           <MDXRenderer>{post.code.body}</MDXRenderer>
@@ -55,16 +54,16 @@ class BlogPostTemplate extends React.Component {
         >
           <li>
             {previous && (
-              <SpringLink to={`/blog${previous.fields.slug}`} rel="prev">
+              <Link to={`/blog${previous.fields.slug}`} rel="prev">
                 ← {previous.frontmatter.title}
-              </SpringLink>
+              </Link>
             )}
           </li>
           <li>
             {next && (
-              <SpringLink to={`/blog${next.fields.slug}`} rel="next">
+              <Link to={`/blog${next.fields.slug}`} rel="next">
                 {next.frontmatter.title} →
-              </SpringLink>
+              </Link>
             )}
           </li>
         </ul>

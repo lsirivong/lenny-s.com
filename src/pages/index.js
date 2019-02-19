@@ -1,20 +1,20 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { styled } from 'linaria/react'
 
 import Bio from '../components/Bio'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
-import { SpringLink, MySpring } from '../components/react-spring-animation'
+// import { SpringLink, MySpring } from '../components/react-spring-animation'
 import DefaultTemplate from '../components/DefaultTemplate'
 
-import TransitionLink from 'gatsby-plugin-transition-link'
+// import TransitionLink from 'gatsby-plugin-transition-link'
 
 const Header = styled.header`
   margin-bottom: ${rhythm(1 / 4)};
 `
 const Title = styled.h3`
-  margin-bottom: 0;
+  margin-bottom: ${rhythm(1 / 4)};
 `
 
 class Index extends React.Component {
@@ -39,17 +39,11 @@ class Index extends React.Component {
             <div key={path}>
               <Header>
                 <Title>
-                  <SpringLink
+                  <Link
                     to={path}
-                    enter={{
-                      duration: 0.3
-                    }}
-                    exit={{
-                      duration: 0.3
-                    }}
                   >
                     {title}
-                  </SpringLink>
+                  </Link>
                 </Title>
                 <small>{node.frontmatter.date}</small>
               </Header>

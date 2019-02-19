@@ -141,12 +141,12 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-linaria`,
-    {
-      resolve: `gatsby-plugin-transition-link`,
-      options: {
-        layout: require.resolve(`./src/components/Layout.js`)
-      }
-    },
+    //     {
+  //       resolve: `gatsby-plugin-transition-link`,
+  //       options: {
+  //         layout: require.resolve(`./src/components/Layout.js`)
+    //       }
+    //     },
     'gatsby-plugin-svgr',
   ],
 }

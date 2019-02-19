@@ -11,9 +11,9 @@ import {
 
 const Container = styled.div`
   padding: ${rhythm(3)} 0 0;
-      color: var(--color-foreground);
-      background: var(--color-background);
-      transition: background ${themeTransitionDuration} ${themeTransitionEase}, color ${themeTransitionDuration} ${themeTransitionEase};
+  color: var(--color-foreground);
+  background: var(--color-background);
+  transition: background ${themeTransitionDuration} ${themeTransitionEase}, color ${themeTransitionDuration} ${themeTransitionEase};
 `
 
 const ContentContainer = styled.div`

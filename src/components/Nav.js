@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { css } from 'linaria'
 import { styled } from 'linaria/react'
 import { rhythm } from '../utils/typography'
-import { SpringLink, MySpring } from '../components/react-spring-animation'
+// import { SpringLink, MySpring } from '../components/react-spring-animation'
 import ScrollTracker from '../components/ScrollTracker'
 import { ReactComponent as SunSvg } from '../components/svg/noun_sun_2148363.svg'
 import { ReactComponent as MoonSvg } from '../components/svg/noun_Moon_2148355.svg'
@@ -121,19 +121,19 @@ const Nav = ({ darkTheme, onToggle }) => (
     {({ scrollDirection }) => (
       <Header className={scrollDirection === 'down' ? Hide : Show}>
         <PrimaryLinks>
-          <SpringLink
+          <Link
             className={StyledLink}
             to="/"
           >
             Home
-          </SpringLink>
+          </Link>
 
-          <SpringLink
+          <Link
             className={StyledLink}
             to="/games/"
           >
             Games
-          </SpringLink>
+          </Link>
         </PrimaryLinks>
 
         <SecondaryLinks>

@@ -1,9 +1,10 @@
 import React from 'react'
 import { styled } from 'linaria/react'
 
-import { rhythm } from '../utils/typography'
+import Layout from '../components/Layout'
 import Footer from '../components/Footer'
-import { MySpring } from '../components/react-spring-animation'
+import { rhythm } from '../utils/typography'
+// import { MySpring } from '../components/react-spring-animation'
 
 
 const Container = styled.div`
@@ -20,7 +21,7 @@ const Inner = styled.div`
 `
 
 const DefaultTemplate = ({ children }) => (
-  <MySpring>
+  <Layout>
     <Container>
       <Inner>
         {children}
@@ -28,7 +29,7 @@ const DefaultTemplate = ({ children }) => (
     </Container>
 
     <Footer />
-  </MySpring>
+  </Layout>
 )
 
 export default DefaultTemplate

@@ -1,7 +1,8 @@
 import React from 'react'
 import { styled } from 'linaria/react'
 import { rhythm } from '../utils/typography'
-import { SpringLink } from '../components/react-spring-animation'
+import { Link } from 'gatsby'
+// import { SpringLink } from '../components/react-spring-animation'
 
 const Container = styled.footer`
   margin-top: ${rhythm(2)};
@@ -26,11 +27,11 @@ const Footer = () => (
       Itch
     </a>
     {` • `}
-    <SpringLink
+    <Link
       to="/resume/"
     >
       Resume
-    </SpringLink>
+    </Link>
   </Container>
 )
 
