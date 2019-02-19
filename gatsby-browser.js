@@ -1,7 +1,15 @@
-// custom typefaces
-import 'typeface-inconsolata'
-import 'typeface-bitter'
-
+import WebFont from 'webfontloader'
 import { wrapRootElement as wrap } from './wrap-root-element'
 
-export const wrapRootElement = wrap
+const onClientEntry = () => {
+  WebFont.load({
+    google: {
+      families: ['Bitter:700', 'Inconsolata']
+    }
+  });
+}
+
+export {
+  wrap as wrapRootElement,
+  onClientEntry
+}

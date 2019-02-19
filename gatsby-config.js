@@ -9,6 +9,7 @@ module.exports = {
     },
   },
   plugins: [
+    'gatsby-plugin-lodash',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -139,12 +140,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
     `gatsby-plugin-linaria`,
     {
       resolve: `gatsby-plugin-transition-link`,
