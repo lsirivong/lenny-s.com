@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import { styled } from 'linaria/react'
 
 import { rhythm } from '../utils/typography'
 import Footer from '../components/Footer'
@@ -25,9 +25,9 @@ const DefaultTemplate = ({ children }) => (
       <Inner>
         {children}
       </Inner>
-
-      <Footer />
     </Container>
+
+    <Footer />
   </MySpring>
 )
 

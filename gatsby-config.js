@@ -34,7 +34,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 630,
               withWebp: true,
               quality: 80,
               backgroundColor: null,
@@ -145,12 +145,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {
-        // Accepts all options defined by `babel-plugin-emotion` plugin.
-      },
-    },
+    `gatsby-plugin-linaria`,
     {
       resolve: `gatsby-plugin-transition-link`,
       options: {

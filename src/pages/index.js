@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
+import { styled } from 'linaria/react'
 
 import Bio from '../components/Bio'
 import SEO from '../components/seo'

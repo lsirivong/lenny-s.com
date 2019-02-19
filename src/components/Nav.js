@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { css } from '@emotion/core'
-import styled from '@emotion/styled'
+import { css } from 'linaria'
+import { styled } from 'linaria/react'
 import { rhythm } from '../utils/typography'
 import { SpringLink, MySpring } from '../components/react-spring-animation'
 import ScrollTracker from '../components/ScrollTracker'
@@ -21,7 +21,7 @@ const Header = styled.header`
   right: 0;
   padding: ${rhythm(1)};
   z-index: 500;
-  background: ${({ theme }) => theme.background};
+  background: var(--color-background);
   transition: transform 300ms ease-out,
     background ${themeTransitionDuration} ${themeTransitionEase}, color ${themeTransitionDuration} ${themeTransitionEase};
   ${({ scrollDirection }) => `
@@ -39,7 +39,7 @@ const PrimaryLinks = styled.div`
 const SecondaryLinks = styled.div`
 `
 
-const StyledLink = styled(SpringLink)`
+const StyledLink = css`
   margin-right: 0.5em;
   display: inline-block;
 `
@@ -52,14 +52,6 @@ const iconStyles = css`
   margin: 4px 3px 0;
   transform-origin: 12px 9px;
   transition: fill ${themeTransitionDuration} ${themeTransitionEase};
-`
-
-const MoonIcon = styled(MoonSvg)`
-  ${iconStyles}
-`
-const SunIcon = styled(SunSvg)`
-  ${iconStyles}
-  margin-right: 2px;
 `
 
 const ToggleThemeButton = styled.button`
@@ -75,19 +67,9 @@ const ToggleThemeButton = styled.button`
   height: 32px;
   padding: 0;
   cursor: pointer;
-  border: 2px solid ${props => props.theme.foreground};
+  border: 2px solid var(--color-foreground);
   border-radius: 32px;
   transition: border-color ${themeTransitionDuration} ${themeTransitionEase};
-  ${SunIcon} {
-    path {
-      fill: ${props => props.isActive ? props.theme.foreground : props.theme.background};
-    }
-  }
-  ${MoonIcon} {
-    path {
-      fill: ${props => props.isActive ? props.theme.background : props.theme.foreground};
-    }
-  }
   &:before {
     content: '';
     position: absolute;
@@ -97,12 +79,24 @@ const ToggleThemeButton = styled.button`
     left: -2px;
     top: -2px;
     border-radius: 50%;
-    border: 2px solid ${props => props.theme.foreground};
+    border: 2px solid var(--color-foreground);
     transition: transform 250ms ease-out,
       background ${themeTransitionDuration} ${themeTransitionEase},
       border-color ${themeTransitionDuration} ${themeTransitionEase};
     transform: translateX(${props => props.isActive ? 0 : 32}px);
-    background: ${props => props.theme.foreground};
+    background: var(--color-foreground);
+  }
+`
+
+const IconForeground = css`
+  path {
+    fill: var(--color-foreground);
+  }
+`
+
+const IconBackground = css`
+  path {
+    fill: var(--color-background);
   }
 `
 
@@ -111,7 +105,7 @@ const ToggleTheme = ({ onToggle, isActive }) => (
     onClick={onToggle}
     isActive={isActive}
   >
-    <MoonIcon /> <SunIcon />
+    <MoonSvg className={`${iconStyles} ${isActive ? IconBackground : IconForeground}`} /> <SunSvg className={`${iconStyles} ${isActive ? IconForeground : IconBackground}`} />
   </ToggleThemeButton>
 )
 
@@ -120,17 +114,19 @@ const Nav = ({ darkTheme, onToggle }) => (
     {({ scrollDirection }) => (
       <Header scrollDirection={scrollDirection}>
         <PrimaryLinks>
-          <StyledLink
+          <SpringLink
+            className={StyledLink}
             to="/"
           >
             Home
-          </StyledLink>
+          </SpringLink>
 
-          <StyledLink
+          <SpringLink
+            className={StyledLink}
             to="/games/"
           >
             Games
-          </StyledLink>
+          </SpringLink>
         </PrimaryLinks>
 
         <SecondaryLinks>

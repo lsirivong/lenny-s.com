@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
-import styled from '@emotion/styled'
+import { styled } from 'linaria/react'
 import { rhythm } from '../utils/typography'
 
 const Greeting = styled.div`

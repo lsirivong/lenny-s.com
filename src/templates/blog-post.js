@@ -5,7 +5,7 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer'
 import Bio from '../components/Bio'
 import SEO from '../components/seo'
 import { rhythm, scale } from '../utils/typography'
-import styled from '@emotion/styled'
+import { styled } from 'linaria/react';
 import DefaultTemplate from '../components/DefaultTemplate'
 import { SpringLink, MySpring } from '../components/react-spring-animation'
 

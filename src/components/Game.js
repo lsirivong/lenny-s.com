@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import React from 'react'
-import styled from '@emotion/styled'
+import { css } from 'linaria'
+import { styled } from 'linaria/react'
 import { rhythm } from '../utils/typography'
 import Image from 'gatsby-image'
 import { themeTransitionEase, themeTransitionDuration } from '../utils/animations'
@@ -20,7 +21,7 @@ const Container = styled.div`
 const Header = styled.header`
 `
 
-const Thumb = styled(Image)`
+const Thumb = css`
   ${largerThanSmall} {
     grid-row: 1 / 3;
   }
@@ -33,10 +34,8 @@ const Button = styled.a`
   border: 0;
   transition: background ${themeTransitionDuration} ${themeTransitionEase},
     color ${themeTransitionDuration} ${themeTransitionEase};
-  ${({theme}) => `
-    background: ${theme.accent};
-    color: ${theme.background};
-  `};
+  background: var(--color-accent);
+  color: var(--color-background);
 `
 
 const Description = styled.dl`
@@ -60,8 +59,6 @@ const Description = styled.dl`
   }
 `
 
-const listify = v => _.isArray(v) ? v.join(', ') : v
-
 const Name = styled.h3`
   margin: 0 0 ${rhythm(0.5)};
 `
@@ -70,6 +67,8 @@ const Meta = styled.small`
   display: block;
   line-height: 1;
 `
+
+const listify = v => _.isArray(v) ? v.join(', ') : v
 
 export default ({
   url,
@@ -84,7 +83,8 @@ export default ({
 }) => (
   <Container>
     {imageFluid && (
-      <Thumb
+      <Image
+        className={Thumb}
         fluid={imageFluid}
       />
     )}
