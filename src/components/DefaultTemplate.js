@@ -4,7 +4,6 @@ import { styled } from 'linaria/react'
 import Layout from '../components/Layout'
 import Footer from '../components/Footer'
 import { rhythm } from '../utils/typography'
-// import { MySpring } from '../components/react-spring-animation'
 
 
 const Container = styled.div`

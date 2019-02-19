@@ -5,10 +5,7 @@ import { styled } from 'linaria/react'
 import Bio from '../components/Bio'
 import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
-// import { SpringLink, MySpring } from '../components/react-spring-animation'
 import DefaultTemplate from '../components/DefaultTemplate'
-
-// import TransitionLink from 'gatsby-plugin-transition-link'
 
 const Header = styled.header`
   margin-bottom: ${rhythm(1 / 4)};

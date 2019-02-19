@@ -7,7 +7,6 @@ import SEO from '../components/seo'
 import { rhythm } from '../utils/typography'
 import { styled } from 'linaria/react';
 import DefaultTemplate from '../components/DefaultTemplate'
-// import { SpringLink, MySpring } from '../components/react-spring-animation'
 
 const RendererContainer = styled.div`
 `

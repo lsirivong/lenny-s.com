@@ -2,7 +2,6 @@ import React from 'react'
 import { styled } from 'linaria/react'
 import { rhythm } from '../utils/typography'
 import { Link } from 'gatsby'
-// import { SpringLink } from '../components/react-spring-animation'
 
 const Container = styled.footer`
   margin-top: ${rhythm(2)};
