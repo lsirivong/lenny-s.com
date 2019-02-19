@@ -23,14 +23,21 @@ const Header = styled.header`
   z-index: 500;
   background: var(--color-background);
   transition: transform 300ms ease-out,
-    background ${themeTransitionDuration} ${themeTransitionEase}, color ${themeTransitionDuration} ${themeTransitionEase};
-  ${({ scrollDirection }) => `
-    transform: translateY(${scrollDirection === 'down' ? -100 : 0}%);
-  `}
+    background ${themeTransitionDuration} ${themeTransitionEase},
+    color ${themeTransitionDuration} ${themeTransitionEase};
+
   @media (min-width: 920px) {
     transform: none;
     background: transparent;
   }
+`
+
+const Hide = css`
+  transform: translateY(-100%);
+`
+
+const Show = css`
+  transform: translateY(0);
 `
 
 const PrimaryLinks = styled.div`
@@ -112,7 +119,7 @@ const ToggleTheme = ({ onToggle, isActive }) => (
 const Nav = ({ darkTheme, onToggle }) => (
   <ScrollTracker>
     {({ scrollDirection }) => (
-      <Header scrollDirection={scrollDirection}>
+      <Header className={scrollDirection === 'down' ? Hide : Show}>
         <PrimaryLinks>
           <SpringLink
             className={StyledLink}
