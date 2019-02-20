@@ -1,7 +1,6 @@
 import React from 'react'
 import { styled } from 'linaria/react'
 
-import Layout from '../components/Layout'
 import Footer from '../components/Footer'
 import { rhythm } from '../utils/typography'
 
@@ -20,7 +19,7 @@ const Inner = styled.div`
 `
 
 const DefaultTemplate = ({ children }) => (
-  <Layout>
+  <>
     <Container>
       <Inner>
         {children}
@@ -28,7 +27,7 @@ const DefaultTemplate = ({ children }) => (
     </Container>
 
     <Footer />
-  </Layout>
+  </>
 )
 
 export default DefaultTemplate
