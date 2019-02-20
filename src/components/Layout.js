@@ -4,16 +4,10 @@ import { rhythm } from '../utils/typography'
 import Nav from '../components/Nav'
 import themes from '../utils/themes'
 import globalStyles from '../utils/globalStyles'
-import {
-  themeTransitionDuration,
-  themeTransitionEase
-} from '../utils/animations'
+import Helmet from 'react-helmet'
 
 const Container = styled.div`
   padding: ${rhythm(3)} 0 0;
-  color: var(--color-foreground);
-  background: var(--color-background);
-  transition: background ${themeTransitionDuration} ${themeTransitionEase}, color ${themeTransitionDuration} ${themeTransitionEase};
 `
 
 const ContentContainer = styled.div`
@@ -31,7 +25,10 @@ class Layout extends React.Component {
     const theme = this.state.darkTheme ? themes.dark : themes.light
 
     return (
-      <Container class={theme}>
+      <Container>
+        <Helmet>
+          <body className={theme} />
+        </Helmet>
         <Nav
           darkTheme={this.state.darkTheme}
           onToggle={e => {

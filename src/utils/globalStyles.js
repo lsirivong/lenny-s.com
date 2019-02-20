@@ -1,5 +1,9 @@
 import { css } from 'linaria'
 import { rhythm } from '../utils/typography'
+import {
+  themeTransitionDuration,
+  themeTransitionEase
+} from './animations'
 
 export default css`
   :global() {
@@ -11,10 +15,6 @@ export default css`
       font-family: sans-serif;
       -ms-text-size-adjust: 100%;
       -webkit-text-size-adjust: 100%
-    }
-
-    body {
-      margin: 0
     }
 
     article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
@@ -210,7 +210,6 @@ export default css`
     }
 
     body {
-      color: hsla(0,0%,0%,0.8);
       font-family: 'Courier',monospace;
       .wf-inconsolata-n4-active & {
         font-family: 'Inconsolata','Courier',monospace;
@@ -639,6 +638,14 @@ export default css`
     th:last-child,td:last-child {
       padding-right: 0;
     }
+
+    body {
+      margin: 0 0 3rem;
+      color: var(--color-foreground);
+      background: var(--color-background);
+      transition: background ${themeTransitionDuration} ${themeTransitionEase}, color ${themeTransitionDuration} ${themeTransitionEase};
+    }
+
 
     @media (max-width: 518px) {
       html {
